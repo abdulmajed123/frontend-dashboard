@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Login from "../Pages/Login/Login";
 import Dashboard from "../Pages/Dashbaord/Dashboard";
+import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +10,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
   },
 ]);
 
